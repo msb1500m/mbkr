@@ -1,0 +1,34 @@
+/* Existing styles omitted for brevity — keep them */
+
+.coach-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.coach-card {
+  max-width: 300px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.coach-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+#lang-toggle {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
