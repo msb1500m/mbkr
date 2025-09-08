@@ -9,7 +9,7 @@
 }
 
 .coach-card {
-  max-width: 300px;
+  max-width: 550px;
   background: white;
   padding: 1rem;
   border-radius: 8px;
@@ -20,8 +20,32 @@
 .coach-card img {
   width: 100%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 0%;
 }
+
+.athlete-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.athlete-card {
+  max-width: 250px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.athlete-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0%;
+}
+
 
 #lang-toggle {
   background-color: #e63946;
@@ -31,4 +55,91 @@
   margin-left: 1rem;
   cursor: pointer;
   border-radius: 4px;
+}
+
+/* --- Navigation Bar --- */
+header {
+  width: 100%;
+  background-color: #004225; /* dark background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #8A9A5B; /* highlight color */
+}
+
+/* Language toggle button */
+#lang-toggle {
+  background-color: #A3B18A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+#lang-toggle:hover {
+  background-color: #8A9A5B;
+}
+
+.contact-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left; /* or center if you prefer */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea,
+form button {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
 }
