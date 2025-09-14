@@ -66,3 +66,72 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      menu.classList.toggle('open');
+      // Optionally, toggle aria‑expanded for accessibility
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Also optionally close the menu when a link is clicked (on mobile)
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function() {
+        // only close if menu is open
+        if (menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  }
+});
+
+
+
+
+// script.js
+
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+  navToggle.setAttribute('aria-expanded', 'false');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    // accessibility hint
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Optional: close menu when a link is clicked (mobile UX)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// language toggle remains unchanged...
+const langToggle = document.getElementById("lang-toggle");
+if (langToggle) {
+  langToggle.addEventListener("click", () => {
+    const currentLang = langToggle.textContent.trim();
+    const newLang = currentLang === "FR" ? "EN" : "FR";
+    langToggle.textContent = newLang;
+
+    document.querySelectorAll("[data-en]").forEach(el => {
+      el.textContent = el.getAttribute(`data-${newLang.toLowerCase()}`);
+    });
+  });
+}
+
+
