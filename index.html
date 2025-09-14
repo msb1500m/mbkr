@@ -10,14 +10,19 @@
 <body>
 
   <header>
-
-      <!-- Hamburger / toggle button for mobile -->
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    &#9776; <!-- Or an icon of your choice -->
-  </button>
-
+    <!-- Hamburger / toggle button for mobile -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+  
     <nav class="navbar">
-      <div class="logo" data-en="MBKR Coaching" data-fr="MBKR Coaching">MBKR Coaching</div>
+      <!-- Logo + language toggle wrapped together -->
+      <div class="navbar-left">
+        <div class="logo" data-en="MBKR Coaching" data-fr="MBKR Coaching">MBKR Coaching</div>
+        <button id="lang-toggle">FR</button>
+      </div>
+  
+      <!-- Navigation links -->
       <ul class="nav-links">
         <li><a href="#home" data-en="Home" data-fr="Accueil">Home</a></li>
         <li><a href="#about" data-en="About Us" data-fr="À propos">About Us</a></li>
@@ -25,9 +30,9 @@
         <li><a href="#testimonials" data-en="Testimonials" data-fr="Témoignages">Testimonials</a></li>
         <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
       </ul>
-      <button id="lang-toggle">FR</button>
     </nav>
   </header>
+  
 
   <section id="home" class="hero">
     <h1 data-en="Reach Your Running Goals, Avoid Injury, Have Fun!" data-fr="Atteignez vos objectifs en course à pied, évitez les blessures, amusez-vous!">Reach Your Running Goals, Avoid Injury, Have Fun!</h1>
