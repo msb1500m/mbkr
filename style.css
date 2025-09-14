@@ -62,7 +62,15 @@ header {
   width: 100%;
   background-color: #004225; /* dark background */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;   /* vertically center children */
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
+
+
+
+
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -147,12 +155,17 @@ form button {
 /* Mobile Navbar */
 /* Hide toggle by default; show nav horizontally on large screens */
 .nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
+  display: none;          /* hidden on desktop */
+  background: none;       /* no background */
+  border: none;           /* no border */
+  font-size: 1.8rem;      /* hamburger size */
   cursor: pointer;
+  color: white;
+  padding: 0;             /* remove extra space */
+  margin: 0;              /* reset margins */
+  line-height: 1;         /* no vertical offset */
 }
+
 
 /* REPLACEMENT — use .nav-links (same element, less specific than .navbar ul) */
 .nav-links {
@@ -170,7 +183,6 @@ form button {
   /* whatever else you have */
 }
 
-/* Mobile styles */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -179,18 +191,33 @@ form button {
     font-size: 1.8rem;
     cursor: pointer;
     color: white;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
   }
 
-  /* hide links initially on mobile */
+  /* keep navbar visible at all times */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #004225; /* same as header */
+    flex-wrap: wrap; /* allows nav-links to drop below without creating gaps */
+  }
+
+  /* hide links initially */
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     background-color: #004225;
-    margin-top: 1rem;
+    margin: 0;     /* 🚀 no margin = no white bar */
+    padding: 0;    /* reset padding */
   }
 
-  /* show links when .open is toggled */
+  /* show links when menu opened */
   .nav-links.open {
     display: flex;
   }
@@ -200,18 +227,8 @@ form button {
     border-top: 1px solid rgba(255,255,255,0.08);
   }
 
-  /* ensure the nav container remains visible (logo and lang toggle) */
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1rem 1.2rem;
-  }
-
   #lang-toggle {
-    margin-left: 1rem;
-    margin-top: 0;
-    align-self: center;
+    margin-left: auto;
   }
 }
+
