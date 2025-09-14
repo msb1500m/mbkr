@@ -55,6 +55,7 @@
   margin-left: 1rem;
   cursor: pointer;
   border-radius: 4px;
+
 }
 
 /* --- Navigation Bar --- */
@@ -77,17 +78,6 @@ body {
   background: #f8f9fa;
   color: #333;
   line-height: 1.6;
-}
-
-
-.navbar {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
 }
 
 .logo {
@@ -115,18 +105,6 @@ body {
   color: #8A9A5B; /* highlight color */
 }
 
-/* Language toggle button */
-#lang-toggle {
-  background-color: #A3B18A;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-left: 2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
 
 #lang-toggle:hover {
   background-color: #8A9A5B;
@@ -167,15 +145,7 @@ form button {
 }
 
 
-/* REPLACEMENT — use .nav-links (same element, less specific than .navbar ul) */
-.nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;   /* horizontal layout on desktop */
-  gap: 2rem;
-  align-items: center;
-}
+
 
 .navbar ul li a {
   text-decoration: none;
@@ -183,52 +153,78 @@ form button {
   /* whatever else you have */
 }
 
+
+/* Navbar container */
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertical centering */
+  color: white;
+  position: relative;
+}
+
+/* Wrap logo + language toggle */
+.navbar-left {
+  display: flex;
+  align-items: center; /* centers logo + toggle vertically */
+  gap: 1rem;
+}
+
+/* Language toggle button */
+#lang-toggle {
+  background-color: #A3B18A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-direction: row; /* row for desktop */
+}
+
+/* Hamburger button */
+.nav-toggle {
+  display: none; /* show only on mobile via media query */
+}
+
+/* Responsive: mobile */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: white;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
   }
 
-  /* keep navbar visible at all times */
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    background-color: #004225; /* same as header */
-    flex-wrap: wrap; /* allows nav-links to drop below without creating gaps */
-  }
-
-  /* hide links initially */
   .nav-links {
-    display: none;
+    position: absolute;
+    top: 100%; /* below navbar */
+    left: 0;
+    right: 0;
+    background-color: #004225; /* same as navbar */
     flex-direction: column;
-    width: 100%;
-    background-color: #004225;
-    margin: 0;     /* 🚀 no margin = no white bar */
-    padding: 0;    /* reset padding */
+    display: none; /* initially hidden */
+    gap: 0;
   }
 
-  /* show links when menu opened */
-  .nav-links.open {
+  .nav-links.show {
     display: flex;
   }
 
-  .nav-links li a {
-    padding: 15px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-
-  #lang-toggle {
-    margin-left: auto;
+  .nav-links li {
+    padding: 1rem;
+    text-align: center;
   }
 }
-
