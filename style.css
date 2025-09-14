@@ -143,3 +143,75 @@ form button {
   padding: 0.5rem;
   font-size: 1rem;
 }
+
+/* Mobile Navbar */
+/* Hide toggle by default; show nav horizontally on large screens */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* REPLACEMENT — use .nav-links (same element, less specific than .navbar ul) */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;   /* horizontal layout on desktop */
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  /* whatever else you have */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  /* hide links initially on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #004225;
+    margin-top: 1rem;
+  }
+
+  /* show links when .open is toggled */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li a {
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ensure the nav container remains visible (logo and lang toggle) */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.2rem;
+  }
+
+  #lang-toggle {
+    margin-left: 1rem;
+    margin-top: 0;
+    align-self: center;
+  }
+}
